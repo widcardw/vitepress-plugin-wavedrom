@@ -3,9 +3,9 @@ Add wavedrom support for vitepress
 
 ## Caution
 
-The plugin is not tested well. Please report any issues.
+The plugin is not tested well, and it does not support dark skin. Please report any issues.
 
-Also, wavedrom may load slowly, and it does not support dark skin.
+Also, wavedrom may load slowly.
 
 ## Installation
 
@@ -54,3 +54,7 @@ Use in any markdown file.
         { name: "wire", wave: "0.1..0." }
     ]}
     ```
+
+## Inspiration
+
+[vitepress-plugin-mermaid](https://github.com/emersonbottero/vitepress-plugin-mermaid)
