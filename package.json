@@ -1,0 +1,31 @@
+{
+  "name": "vitepress-plugin-wavedrom",
+  "version": "0.0.1",
+  "description": "Add wavedrom support for Vitepress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/widcardw/vitepress-plugin-wavedrom.git"
+  },
+  "keywords": [
+    "vitepress",
+    "wavedrom"
+  ],
+  "author": "widcardw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/widcardw/vitepress-plugin-wavedrom/issues"
+  },
+  "files": [
+    "index.js",
+    "Wavedrom.vue"
+  ],
+  "homepage": "https://github.com/widcardw/vitepress-plugin-wavedrom#readme",
+  "peerDependencies": {
+    "wavedrom": "^2.9.0",
+    "vitepress": "^0.0.1"
+  }
+}
