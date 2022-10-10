@@ -1,4 +1,5 @@
 # vitepress-plugin-wavedrom
+
 Add wavedrom support for vitepress
 
 ## Caution
@@ -16,7 +17,7 @@ npm install vitepress-plugin-wavedrom
 
 ## Usage
 
-Add component dependency.
+Register component globaly.
 
 ```ts
 // .vitepress/theme/index.ts
@@ -28,6 +29,17 @@ export default {
     enhanceApp({ app }) {
         app.component("WavedromVue", WavedromVue);
     }
+}
+```
+
+If you are annoyed with the error of the missing declaration of vue component, you can create a file named _shim.d.ts_.
+
+```ts
+// shim.d.ts
+declare module '*.vue' {
+  import type { DefineComponent } from 'vue'
+  const component: DefineComponent<{}, {}, any>
+  export default component
 }
 ```
 
@@ -47,13 +59,13 @@ export default defineConfig({
 
 Use in any markdown file.
 
-    ```wavedrom
-    { signal: [
-        { name: "clk",  wave: "P......" },
-        { name: "bus",  wave: "x.==.=x", data: ["head", "body", "tail", "data"] },
-        { name: "wire", wave: "0.1..0." }
-    ]}
-    ```
+```wavedrom
+{ signal: [
+    { name: "clk",  wave: "P......" },
+    { name: "bus",  wave: "x.==.=x", data: ["head", "body", "tail", "data"] },
+    { name: "wire", wave: "0.1..0." }
+]}
+```
 
 ## Inspiration
 

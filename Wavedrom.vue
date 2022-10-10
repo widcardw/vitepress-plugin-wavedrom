@@ -3,29 +3,23 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch, nextTick } from "vue";
+import { ref, nextTick, onMounted } from "vue";
 import * as WaveDrom from 'wavedrom/wavedrom.unpkg';
 import WaveSkin from "wavedrom/skins/default"
+import json5 from 'json5'
 // (window as any).waveSkin = WaveSkin
 
-const props = defineProps({
-    id: {
-        type: String,
-        required: true
-    },
-    parentText: {
-        type: String,
-        required: true
-    }
-})
+const props = defineProps<{
+    id: string,
+    parentText: string
+}>()
 
 const waveRef = ref(undefined)
 
-const formatedText = props.parentText.replace(/([A-Za-z0-9]+?)([ ]*:[ ]*[\{\[\"0-9])/g, '"$1"$2')
-
-nextTick(() => {
-    WaveDrom.renderWaveElement(props.id, JSON.parse(formatedText), waveRef.value, WaveSkin)
+onMounted(() => {
+    nextTick(() => {
+        WaveDrom.renderWaveElement(props.id, json5.parse(props.parentText), waveRef.value, WaveSkin)
+    })
 })
-
 </script>
 

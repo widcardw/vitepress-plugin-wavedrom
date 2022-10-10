@@ -1,5 +1,7 @@
-const wavedromPlugin = (md) => {
-  const temp = md.renderer.rules.fence.bind(md.renderer.rules);
+import MarkdownIt from "markdown-it";
+
+const wavedromPlugin: MarkdownIt.PluginSimple = (md) => {
+  const temp = md.renderer.rules.fence?.bind(md.renderer.rules);
   md.renderer.rules.fence = (tokens, index, options, env, slf) => {
     const token = tokens[index];
 
@@ -16,4 +18,4 @@ const wavedromPlugin = (md) => {
   };
 }
 
-module.exports = wavedromPlugin;
+export default wavedromPlugin
