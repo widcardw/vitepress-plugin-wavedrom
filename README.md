@@ -4,6 +4,8 @@ Add wavedrom support for vitepress
 
 ## Caution
 
+**WIP** it works in `dev` mode, but may fail in `production` mode. (Add `onMounted` deps to _Wavedrom.vue_ may help)
+
 The plugin is not tested well, and it does not support dark skin. Please report any issues.
 
 Also, wavedrom may load slowly.
