@@ -3,8 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick, onMounted } from "vue";
-import * as WaveDrom from 'wavedrom/wavedrom.unpkg';
+import { ref, onMounted } from "vue";
 import WaveSkin from "wavedrom/skins/default"
 import json5 from 'json5'
 // (window as any).waveSkin = WaveSkin
@@ -16,10 +15,9 @@ const props = defineProps<{
 
 const waveRef = ref(undefined)
 
-onMounted(() => {
-    nextTick(() => {
-        WaveDrom.renderWaveElement(props.id, json5.parse(props.parentText), waveRef.value, WaveSkin)
-    })
+onMounted(async () => {
+    const WaveDrom = (await import('wavedrom/wavedrom.unpkg')).default
+    WaveDrom.renderWaveElement(props.id, json5.parse(props.parentText), waveRef.value, WaveSkin)
 })
 </script>
 
